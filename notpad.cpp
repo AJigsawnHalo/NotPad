@@ -6,6 +6,7 @@ NotPad::NotPad(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+	this->setWindowTitle("NotPad");
 }
 
 NotPad::~NotPad()
@@ -18,6 +19,7 @@ QString activeFile = "";
 void NotPad::on_actionNew_triggered(){
 	
 	activeFile = "";
+	this->setWindowTitle("untitled");
 	qDebug() << activeFile;
 	ui->plainTextEdit->document()->clear();
 }
@@ -28,6 +30,11 @@ void NotPad::on_actionOpen_triggered(){
 
 	QFile file(fileName);
 	activeFile = fileName;
+
+	QString currentDir = QDir::currentPath() + "/";
+	int dirLength = currentDir.length();
+	QString currentFile = activeFile.mid(dirLength);
+	this->setWindowTitle(currentFile);
 	qDebug() << activeFile;
 	
 	if (file.open(QIODevice::ReadOnly | QFile::Text)){
@@ -42,6 +49,11 @@ void NotPad::saveFunc(QString fileName){
 
 	QFile file(fileName);
 	activeFile = fileName;
+
+	QString currentDir = QDir::currentPath() + "/";
+	int dirLength = currentDir.length();
+	QString currentFile = activeFile.mid(dirLength);
+	this->setWindowTitle(currentFile);
 	qDebug() << activeFile;
 
 	if(file.open(QIODevice::WriteOnly | QFile::Text)){
