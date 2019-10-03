@@ -72,3 +72,6 @@ Thumbs.db
 *.dll
 *.exe
 NotPad
+
+# YCM extra config
+.ycm_extra_conf.py
