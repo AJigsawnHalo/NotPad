@@ -17,10 +17,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    notpad.cpp
 
 HEADERS += \
-    mainwindow.h
+    notpad.h
 
 FORMS += \
     mainwindow.ui

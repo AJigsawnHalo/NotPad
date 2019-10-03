@@ -1,14 +1,14 @@
-#include "mainwindow.h"
+#include "notpad.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
+NotPad::NotPad(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 }
 
-MainWindow::~MainWindow()
+NotPad::~NotPad()
 {
     delete ui;
 }

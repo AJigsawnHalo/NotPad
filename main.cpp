@@ -1,11 +1,11 @@
-#include "mainwindow.h"
+#include "notpad.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+    NotPad w;
     w.show();
     return a.exec();
 }
