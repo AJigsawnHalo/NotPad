@@ -15,6 +15,11 @@ NotPad::~NotPad()
 
 QString activeFile = "";
 
+void NotPad::on_actionNew_triggered(){
+	activeFile = "Untitled.txt";
+	ui->plainTextEdit->document()->clear();
+}
+
 void NotPad::on_actionOpen_triggered(){
 	
 	QString fileName = QFileDialog::getOpenFileName(this, "Open..", QDir::currentPath());

@@ -20,6 +20,7 @@ public:
     ~NotPad();
 
 private slots:
+	void on_actionNew_triggered();
 	void on_actionOpen_triggered();
 private:
     Ui::MainWindow *ui;
