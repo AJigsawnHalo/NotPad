@@ -6,6 +6,7 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QPlainTextEdit>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

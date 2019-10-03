@@ -16,7 +16,8 @@ NotPad::~NotPad()
 QString activeFile = "";
 
 void NotPad::on_actionNew_triggered(){
-	activeFile = "Untitled.txt";
+	activeFile = "untitled.txt";
+	qDebug() << activeFile;
 	ui->plainTextEdit->document()->clear();
 }
 
@@ -26,7 +27,8 @@ void NotPad::on_actionOpen_triggered(){
 
 	QFile file(fileName);
 	activeFile = fileName;
-
+	qDebug() << activeFile;
+	
 	if (file.open(QIODevice::ReadOnly | QFile::Text)){
 		QTextStream in(&file);
 		QString content = in.readAll();
