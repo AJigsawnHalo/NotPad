@@ -16,7 +16,8 @@ NotPad::~NotPad()
 QString activeFile = "";
 
 void NotPad::on_actionNew_triggered(){
-	activeFile = QDir::currentPath() + "/untitled.txt";
+	
+	activeFile = "";
 	qDebug() << activeFile;
 	ui->plainTextEdit->document()->clear();
 }
@@ -36,3 +37,40 @@ void NotPad::on_actionOpen_triggered(){
 	}
 	file.close();
 }
+
+void NotPad::saveFunc(QString fileName){
+
+	QFile file(fileName);
+	activeFile = fileName;
+	qDebug() << activeFile;
+
+	if(file.open(QIODevice::WriteOnly | QFile::Text)){
+		QTextStream out(&file);
+		QString content = ui->plainTextEdit->document()->toPlainText();
+		out << content;
+	}
+	file.close();
+}
+
+void NotPad::saveAs(){
+
+	QString fileName = QFileDialog::getSaveFileName(this, "Save As...", QDir::currentPath());
+
+	saveFunc(fileName);
+}
+
+void NotPad::on_actionSave_triggered(){
+
+	if(activeFile != ""){
+		saveFunc(activeFile);
+	}
+	else {
+		saveAs();
+	}
+}
+
+void NotPad::on_actionSave_As_triggered(){
+	
+	saveAs();
+}
+

@@ -23,6 +23,10 @@ public:
 private slots:
 	void on_actionNew_triggered();
 	void on_actionOpen_triggered();
+	void saveFunc(QString fileName);
+	void saveAs();
+	void on_actionSave_triggered();
+	void on_actionSave_As_triggered();
 private:
     Ui::MainWindow *ui;
 };
