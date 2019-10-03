@@ -16,7 +16,7 @@ NotPad::~NotPad()
 QString activeFile = "";
 
 void NotPad::on_actionNew_triggered(){
-	activeFile = "untitled.txt";
+	activeFile = QDir::currentPath() + "/untitled.txt";
 	qDebug() << activeFile;
 	ui->plainTextEdit->document()->clear();
 }
