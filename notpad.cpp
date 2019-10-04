@@ -105,3 +105,48 @@ void NotPad::on_actionExit_triggered(){
         QApplication::quit();
       }
 }
+
+void NotPad::on_actionUndo_triggered(){
+
+	ui->plainTextEdit->undo();
+}
+
+void NotPad::on_actionRedo_triggered(){
+
+	ui->plainTextEdit->redo();
+}
+
+void NotPad::on_actionSelect_triggered(){
+
+	QTextCursor cursor;
+	cursor.clearSelection();
+	cursor = ui->plainTextEdit->textCursor();
+	cursor.select(QTextCursor::WordUnderCursor);
+	ui->plainTextEdit->setTextCursor(cursor);
+}
+
+void NotPad::on_actionSelect_All_triggered(){
+
+	ui->plainTextEdit->selectAll();
+}
+void NotPad::on_actionCut_triggered(){
+
+	ui->plainTextEdit->cut();
+}
+
+void NotPad::on_actionCopy_triggered(){
+
+	ui->plainTextEdit->copy();
+}
+
+void NotPad::on_actionPaste_triggered(){
+
+	ui->plainTextEdit->paste();
+}
+
+void NotPad::on_actionDelete_triggered(){
+
+	QTextCursor cursor;
+	cursor = ui->plainTextEdit->textCursor();
+	cursor.removeSelectedText();
+}
