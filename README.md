@@ -2,6 +2,7 @@
 Notpad is a simple plain text editor built using C++ and Qt.
 
 ![Screenshot of NotPad in use.](screenshot.png)
+
 There comes a time where a programmer would want to write his own text editor. Here's mine.
 
 ## License
