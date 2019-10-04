@@ -6,6 +6,7 @@ NotPad::NotPad(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+	ui->stackedWidget->setVisible(false);
 	this->setWindowTitle("NotPad");
 }
 
@@ -14,7 +15,6 @@ NotPad::~NotPad()
     delete ui;
 }
 
-QString activeFile = "";
 
 void NotPad::on_actionNew_triggered(){
 	
@@ -149,4 +149,63 @@ void NotPad::on_actionDelete_triggered(){
 	QTextCursor cursor;
 	cursor = ui->plainTextEdit->textCursor();
 	cursor.removeSelectedText();
+}
+
+void NotPad::on_actionFind_triggered(){
+
+	ui->stackedWidget->setCurrentIndex(0);
+	ui->stackedWidget->setVisible(true);
+}
+
+void NotPad::findFunc(QString exp){
+
+	QTextCursor cursor = ui->plainTextEdit->textCursor();
+
+	if(cursor.atEnd()){
+		cursor.movePosition(QTextCursor::Start, QTextCursor::MoveAnchor);
+		ui->plainTextEdit->setTextCursor(cursor);
+		ui->plainTextEdit->find(exp);
+	}
+	else{
+		ui->plainTextEdit->find(exp);
+	}
+}
+
+void NotPad::on_buttonFind_clicked(){
+
+	QString exp = ui->lineFind->text();
+	findFunc(exp);
+}
+
+void NotPad::on_buttonClose_clicked(){
+
+	ui->stackedWidget->setVisible(false);
+}
+
+void NotPad::replaceFunc(QString exp, QString replace){
+
+	// FIXME: Add a way to confirm replacement and a Replace All.
+	QTextCursor cursor;
+	findFunc(exp);
+	cursor = ui->plainTextEdit->textCursor();
+	cursor.insertText(replace);
+	ui->plainTextEdit->find(replace, QTextDocument::FindBackward);
+}
+
+void NotPad::on_actionReplace_triggered(){
+	ui->stackedWidget->setCurrentIndex(1);
+	ui->stackedWidget->setVisible(true);
+}
+
+void NotPad::on_buttonReplace_clicked(){
+
+	QString exp, replace;
+	exp = ui->lineFind2->text();
+	replace = ui->lineReplace->text();
+	replaceFunc(exp, replace);
+}
+
+void NotPad::on_buttonClose2_clicked(){
+
+	ui->stackedWidget->setVisible(false);
 }

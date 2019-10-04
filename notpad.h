@@ -40,9 +40,18 @@ private slots:
 	void on_actionCopy_triggered();
 	void on_actionPaste_triggered();
 	void on_actionDelete_triggered();
+	void on_actionFind_triggered();
+	void findFunc(QString exp);
+	void on_buttonFind_clicked();
+	void on_buttonClose_clicked();
+	void replaceFunc(QString exp, QString replace);
+	void on_actionReplace_triggered();
+	void on_buttonReplace_clicked();
+	void on_buttonClose2_clicked();
 
 private:
     Ui::MainWindow *ui;
+	QString activeFile = "";
 	QPrinter printer;
 };
 #endif // MAINWINDOW_H

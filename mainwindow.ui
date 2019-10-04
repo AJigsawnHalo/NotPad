@@ -37,6 +37,82 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="0">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QLineEdit" name="lineFind">
+          <property name="placeholderText">
+           <string>Find...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="buttonFind">
+          <property name="text">
+           <string>Find</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="buttonClose">
+          <property name="text">
+           <string>Close</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLineEdit" name="lineFind2">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Old text...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineReplace">
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>New text...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="buttonReplace">
+          <property name="text">
+           <string>Replace</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="buttonClose2">
+          <property name="text">
+           <string>Close</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -77,7 +153,7 @@
     <addaction name="actionDelete"/>
     <addaction name="separator"/>
     <addaction name="actionFind"/>
-    <addaction name="actionFind_and_Replace"/>
+    <addaction name="actionReplace"/>
     <addaction name="actionGo_To"/>
    </widget>
    <widget class="QMenu" name="menuView">
@@ -175,11 +251,6 @@
     <string>Find...</string>
    </property>
   </action>
-  <action name="actionFind_and_Replace">
-   <property name="text">
-    <string>Find and Replace...</string>
-   </property>
-  </action>
   <action name="actionGo_To">
    <property name="text">
     <string>Go To...</string>
@@ -236,6 +307,11 @@
   <action name="actionExit">
    <property name="text">
     <string>Exit...</string>
+   </property>
+  </action>
+  <action name="actionReplace">
+   <property name="text">
+    <string>Replace...</string>
    </property>
   </action>
  </widget>
