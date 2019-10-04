@@ -52,6 +52,7 @@ private slots:
 	void on_actionGo_To_triggered();
 	void on_buttonClose3_clicked();
 	void on_buttonGo_clicked();
+    void on_actionWord_Wrap_toggled(bool arg1);
 
 private:
     Ui::MainWindow *ui;

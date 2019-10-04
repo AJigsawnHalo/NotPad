@@ -233,3 +233,12 @@ void NotPad::on_buttonGo_clicked(){
 	ui->plainTextEdit->setFocus();
 	
 }
+
+void NotPad::on_actionWord_Wrap_toggled(bool arg1){
+   if(arg1 == true){
+       ui->plainTextEdit->setLineWrapMode(QPlainTextEdit::WidgetWidth);
+   }
+   else{
+       ui->plainTextEdit->setLineWrapMode((QPlainTextEdit::NoWrap));
+   }
+}
