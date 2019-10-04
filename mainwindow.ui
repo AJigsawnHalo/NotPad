@@ -35,6 +35,9 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="lineWrapMode">
+       <enum>QPlainTextEdit::NoWrap</enum>
+      </property>
      </widget>
     </item>
     <item row="1" column="0">
@@ -104,6 +107,31 @@
         </item>
         <item>
          <widget class="QPushButton" name="buttonClose2">
+          <property name="text">
+           <string>Close</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_3">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLineEdit" name="lineGo">
+          <property name="placeholderText">
+           <string>Go to line...</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="buttonGo">
+          <property name="text">
+           <string>Go to</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="buttonClose3">
           <property name="text">
            <string>Close</string>
           </property>

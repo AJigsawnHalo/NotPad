@@ -8,6 +8,7 @@
 #include <QPlainTextEdit>
 #include <QPrinter>
 #include <QPrintDialog>
+#include <QTextBlock>
 #include <QMessageBox>
 #include <QDebug>
 
@@ -48,6 +49,9 @@ private slots:
 	void on_actionReplace_triggered();
 	void on_buttonReplace_clicked();
 	void on_buttonClose2_clicked();
+	void on_actionGo_To_triggered();
+	void on_buttonClose3_clicked();
+	void on_buttonGo_clicked();
 
 private:
     Ui::MainWindow *ui;

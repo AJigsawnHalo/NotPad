@@ -209,3 +209,27 @@ void NotPad::on_buttonClose2_clicked(){
 
 	ui->stackedWidget->setVisible(false);
 }
+
+void NotPad::on_actionGo_To_triggered(){
+
+	ui->stackedWidget->setCurrentIndex(2);
+	ui->stackedWidget->setVisible(true);
+}
+
+void NotPad::on_buttonClose3_clicked(){
+
+	ui->stackedWidget->setVisible(false);
+}
+
+void NotPad::on_buttonGo_clicked(){
+
+	QString lineNum = ui->lineGo->text();
+
+	QTextBlock block = ui->plainTextEdit->document()->findBlockByLineNumber(lineNum.toInt() - 1);
+	QTextCursor cursor = ui->plainTextEdit->textCursor();
+
+	cursor.setPosition(block.position());
+	ui->plainTextEdit->setTextCursor(cursor);
+	ui->plainTextEdit->setFocus();
+	
+}
