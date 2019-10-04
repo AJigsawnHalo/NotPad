@@ -19,7 +19,7 @@ QString activeFile = "";
 void NotPad::on_actionNew_triggered(){
 	
 	activeFile = "";
-	this->setWindowTitle("untitled");
+	this->setWindowTitle("untitled - NotPad");
 	qDebug() << activeFile;
 	ui->plainTextEdit->document()->clear();
 }
@@ -34,7 +34,7 @@ void NotPad::on_actionOpen_triggered(){
 	QString currentDir = QDir::currentPath() + "/";
 	int dirLength = currentDir.length();
 	QString currentFile = activeFile.mid(dirLength);
-	this->setWindowTitle(currentFile);
+	this->setWindowTitle(currentFile + " - NotPad");
 	qDebug() << activeFile;
 	
 	if (file.open(QIODevice::ReadOnly | QFile::Text)){
@@ -53,7 +53,7 @@ void NotPad::saveFunc(QString fileName){
 	QString currentDir = QDir::currentPath() + "/";
 	int dirLength = currentDir.length();
 	QString currentFile = activeFile.mid(dirLength);
-	this->setWindowTitle(currentFile);
+	this->setWindowTitle(currentFile + " - NotPad");
 	qDebug() << activeFile;
 
 	if(file.open(QIODevice::WriteOnly | QFile::Text)){
