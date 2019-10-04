@@ -96,3 +96,12 @@ void NotPad::on_actionPrint_triggered(){
 	}
 }
 
+void NotPad::on_actionExit_triggered(){
+    QMessageBox::StandardButton reply;
+      reply = QMessageBox::question(this, "Quit", "Would You like to exit?",
+                                    QMessageBox::Yes|QMessageBox::No);
+      if (reply == QMessageBox::Yes) {
+
+        QApplication::quit();
+      }
+}
