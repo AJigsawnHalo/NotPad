@@ -86,3 +86,13 @@ void NotPad::on_actionSave_As_triggered(){
 	saveAs();
 }
 
+void NotPad::on_actionPrint_triggered(){
+	
+	QPrinter printer;
+	printer.setOutputFormat(QPrinter::NativeFormat);
+	QPrintDialog printDlg(&printer, this);
+	if(printDlg.exec() != QDialog::Rejected){
+		ui->plainTextEdit->document()->print(&printer);
+	}
+}
+

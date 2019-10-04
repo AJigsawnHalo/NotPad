@@ -6,6 +6,8 @@
 #include <QFileDialog>
 #include <QTextStream>
 #include <QPlainTextEdit>
+#include <QPrinter>
+#include <QPrintDialog>
 #include <QDebug>
 
 QT_BEGIN_NAMESPACE
@@ -27,7 +29,9 @@ private slots:
 	void saveAs();
 	void on_actionSave_triggered();
 	void on_actionSave_As_triggered();
+	void on_actionPrint_triggered();
 private:
     Ui::MainWindow *ui;
+	QPrinter printer;
 };
 #endif // MAINWINDOW_H
