@@ -16,16 +16,16 @@ NotPad::~NotPad()
 }
 
 
-void NotPad::on_actionNew_triggered(){
-	
+void NotPad::on_actionNew_triggered()
+{
 	activeFile = "";
 	this->setWindowTitle("untitled - NotPad");
 	qDebug() << activeFile;
 	ui->plainTextEdit->document()->clear();
 }
 
-void NotPad::on_actionOpen_triggered(){
-	
+void NotPad::on_actionOpen_triggered()
+{
 	QString fileName = QFileDialog::getOpenFileName(this, "Open..", QDir::currentPath());
 
 	QFile file(fileName);
@@ -45,8 +45,8 @@ void NotPad::on_actionOpen_triggered(){
 	file.close();
 }
 
-void NotPad::saveFunc(QString fileName){
-
+void NotPad::saveFunc(QString fileName)
+{
 	QFile file(fileName);
 	activeFile = fileName;
 
@@ -64,15 +64,15 @@ void NotPad::saveFunc(QString fileName){
 	file.close();
 }
 
-void NotPad::saveAs(){
-
+void NotPad::saveAs()
+{
 	QString fileName = QFileDialog::getSaveFileName(this, "Save As...", QDir::currentPath());
 
 	saveFunc(fileName);
 }
 
-void NotPad::on_actionSave_triggered(){
-
+void NotPad::on_actionSave_triggered()
+{
 	if(activeFile != ""){
 		saveFunc(activeFile);
 	}
@@ -81,13 +81,13 @@ void NotPad::on_actionSave_triggered(){
 	}
 }
 
-void NotPad::on_actionSave_As_triggered(){
-	
+void NotPad::on_actionSave_As_triggered()
+{
 	saveAs();
 }
 
-void NotPad::on_actionPrint_triggered(){
-	
+void NotPad::on_actionPrint_triggered()
+{
 	QPrinter printer;
 	printer.setOutputFormat(QPrinter::NativeFormat);
 	QPrintDialog printDlg(&printer, this);
@@ -96,7 +96,8 @@ void NotPad::on_actionPrint_triggered(){
 	}
 }
 
-void NotPad::on_actionExit_triggered(){
+void NotPad::on_actionExit_triggered()
+{
     QMessageBox::StandardButton reply;
       reply = QMessageBox::question(this, "Quit", "Would You like to exit?",
                                     QMessageBox::Yes|QMessageBox::No);
@@ -106,18 +107,18 @@ void NotPad::on_actionExit_triggered(){
       }
 }
 
-void NotPad::on_actionUndo_triggered(){
-
+void NotPad::on_actionUndo_triggered()
+{
 	ui->plainTextEdit->undo();
 }
 
-void NotPad::on_actionRedo_triggered(){
-
+void NotPad::on_actionRedo_triggered()
+{
 	ui->plainTextEdit->redo();
 }
 
-void NotPad::on_actionSelect_triggered(){
-
+void NotPad::on_actionSelect_triggered()
+{
 	QTextCursor cursor;
 	cursor.clearSelection();
 	cursor = ui->plainTextEdit->textCursor();
@@ -125,40 +126,40 @@ void NotPad::on_actionSelect_triggered(){
 	ui->plainTextEdit->setTextCursor(cursor);
 }
 
-void NotPad::on_actionSelect_All_triggered(){
-
+void NotPad::on_actionSelect_All_triggered()
+{
 	ui->plainTextEdit->selectAll();
 }
-void NotPad::on_actionCut_triggered(){
-
+void NotPad::on_actionCut_triggered()
+{
 	ui->plainTextEdit->cut();
 }
 
-void NotPad::on_actionCopy_triggered(){
-
+void NotPad::on_actionCopy_triggered()
+{
 	ui->plainTextEdit->copy();
 }
 
-void NotPad::on_actionPaste_triggered(){
-
+void NotPad::on_actionPaste_triggered()
+{
 	ui->plainTextEdit->paste();
 }
 
-void NotPad::on_actionDelete_triggered(){
-
+void NotPad::on_actionDelete_triggered()
+{
 	QTextCursor cursor;
 	cursor = ui->plainTextEdit->textCursor();
 	cursor.removeSelectedText();
 }
 
-void NotPad::on_actionFind_triggered(){
-
+void NotPad::on_actionFind_triggered()
+{
 	ui->stackedWidget->setCurrentIndex(0);
 	ui->stackedWidget->setVisible(true);
 }
 
-void NotPad::findFunc(QString exp){
-
+void NotPad::findFunc(QString exp)
+{
 	QTextCursor cursor = ui->plainTextEdit->textCursor();
 
 	if(cursor.atEnd()){
@@ -171,19 +172,19 @@ void NotPad::findFunc(QString exp){
 	}
 }
 
-void NotPad::on_buttonFind_clicked(){
-
+void NotPad::on_buttonFind_clicked()
+{
 	QString exp = ui->lineFind->text();
 	findFunc(exp);
 }
 
-void NotPad::on_buttonClose_clicked(){
-
+void NotPad::on_buttonClose_clicked()
+{
 	ui->stackedWidget->setVisible(false);
 }
 
-void NotPad::replaceFunc(QString exp, QString replace){
-
+void NotPad::replaceFunc(QString exp, QString replace)
+{
 	// FIXME: Add a way to confirm replacement and a Replace All.
 	QTextCursor cursor;
 	findFunc(exp);
@@ -192,37 +193,38 @@ void NotPad::replaceFunc(QString exp, QString replace){
 	ui->plainTextEdit->find(replace, QTextDocument::FindBackward);
 }
 
-void NotPad::on_actionReplace_triggered(){
+void NotPad::on_actionReplace_triggered()
+{
 	ui->stackedWidget->setCurrentIndex(1);
 	ui->stackedWidget->setVisible(true);
 }
 
-void NotPad::on_buttonReplace_clicked(){
-
+void NotPad::on_buttonReplace_clicked()
+{
 	QString exp, replace;
 	exp = ui->lineFind2->text();
 	replace = ui->lineReplace->text();
 	replaceFunc(exp, replace);
 }
 
-void NotPad::on_buttonClose2_clicked(){
-
+void NotPad::on_buttonClose2_clicked()
+{
 	ui->stackedWidget->setVisible(false);
 }
 
-void NotPad::on_actionGo_To_triggered(){
-
+void NotPad::on_actionGo_To_triggered()
+{
 	ui->stackedWidget->setCurrentIndex(2);
 	ui->stackedWidget->setVisible(true);
 }
 
-void NotPad::on_buttonClose3_clicked(){
-
+void NotPad::on_buttonClose3_clicked()
+{
 	ui->stackedWidget->setVisible(false);
 }
 
-void NotPad::on_buttonGo_clicked(){
-
+void NotPad::on_buttonGo_clicked()
+{
 	QString lineNum = ui->lineGo->text();
 
 	QTextBlock block = ui->plainTextEdit->document()->findBlockByLineNumber(lineNum.toInt() - 1);
@@ -234,7 +236,8 @@ void NotPad::on_buttonGo_clicked(){
 	
 }
 
-void NotPad::on_actionWord_Wrap_toggled(bool arg1){
+void NotPad::on_actionWord_Wrap_toggled(bool arg1)
+{
    if(arg1 == true){
        ui->plainTextEdit->setLineWrapMode(QPlainTextEdit::WidgetWidth);
    }
