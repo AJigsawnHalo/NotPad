@@ -9,6 +9,7 @@
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QTextBlock>
+#include <QFontDialog>
 #include <QMessageBox>
 #include <QDebug>
 
@@ -52,11 +53,16 @@ private slots:
 	void on_actionGo_To_triggered();
 	void on_buttonClose3_clicked();
 	void on_buttonGo_clicked();
-    void on_actionWord_Wrap_toggled(bool arg1);
+	void on_actionWord_Wrap_toggled(bool arg1);
+	void on_actionZoom_In_triggered();
+	void on_actionZoom_Out_triggered();
+	void on_actionReset_Zoom_triggered();
+	void on_actionFont_triggered();
 
 private:
     Ui::MainWindow *ui;
 	QString activeFile = "";
 	QPrinter printer;
+	int currentZoom = 0;
 };
 #endif // MAINWINDOW_H

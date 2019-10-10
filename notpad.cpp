@@ -36,7 +36,7 @@ void NotPad::on_actionOpen_triggered()
 	QString currentFile = activeFile.mid(dirLength);
 	this->setWindowTitle(currentFile + " - NotPad");
 	qDebug() << activeFile;
-	
+
 	if (file.open(QIODevice::ReadOnly | QFile::Text)){
 		QTextStream in(&file);
 		QString content = in.readAll();
@@ -233,7 +233,6 @@ void NotPad::on_buttonGo_clicked()
 	cursor.setPosition(block.position());
 	ui->plainTextEdit->setTextCursor(cursor);
 	ui->plainTextEdit->setFocus();
-	
 }
 
 void NotPad::on_actionWord_Wrap_toggled(bool arg1)
@@ -244,4 +243,39 @@ void NotPad::on_actionWord_Wrap_toggled(bool arg1)
    else{
        ui->plainTextEdit->setLineWrapMode((QPlainTextEdit::NoWrap));
    }
+}
+
+void NotPad::on_actionZoom_In_triggered()
+{
+	currentZoom = currentZoom + 2;
+	ui->plainTextEdit->zoomIn(2);
+	qDebug() << currentZoom;
+}
+
+void NotPad::on_actionZoom_Out_triggered()
+{
+	currentZoom = currentZoom - 2;
+	ui->plainTextEdit->zoomOut(2);
+	qDebug() << currentZoom;
+}
+
+void NotPad::on_actionReset_Zoom_triggered()
+{
+	if (currentZoom < 0){
+		int resetZoom = abs(currentZoom);
+		ui->plainTextEdit->zoomIn(resetZoom);
+		currentZoom = 0;
+		qDebug() << currentZoom;
+	}
+	else {
+		int resetZoom = abs(currentZoom);
+		ui->plainTextEdit->zoomOut(resetZoom);
+		currentZoom = 0;
+		qDebug() << currentZoom;
+	}
+}
+
+void NotPad::on_actionFont_triggered()
+{
+	ui->plainTextEdit->setFont(QFontDialog::getFont(0, this));
 }
