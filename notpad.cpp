@@ -20,7 +20,6 @@ void NotPad::on_actionNew_triggered()
 {
 	activeFile = "";
 	this->setWindowTitle("untitled - NotPad");
-	qDebug() << activeFile;
 	ui->plainTextEdit->document()->clear();
 }
 
@@ -35,7 +34,6 @@ void NotPad::on_actionOpen_triggered()
 	int dirLength = currentDir.length();
 	QString currentFile = activeFile.mid(dirLength);
 	this->setWindowTitle(currentFile + " - NotPad");
-	qDebug() << activeFile;
 
 	if (file.open(QIODevice::ReadOnly | QFile::Text)){
 		QTextStream in(&file);
@@ -54,7 +52,6 @@ void NotPad::saveFunc(QString fileName)
 	int dirLength = currentDir.length();
 	QString currentFile = activeFile.mid(dirLength);
 	this->setWindowTitle(currentFile + " - NotPad");
-	qDebug() << activeFile;
 
 	if(file.open(QIODevice::WriteOnly | QFile::Text)){
 		QTextStream out(&file);
@@ -249,14 +246,12 @@ void NotPad::on_actionZoom_In_triggered()
 {
 	currentZoom = currentZoom + 2;
 	ui->plainTextEdit->zoomIn(2);
-	qDebug() << currentZoom;
 }
 
 void NotPad::on_actionZoom_Out_triggered()
 {
 	currentZoom = currentZoom - 2;
 	ui->plainTextEdit->zoomOut(2);
-	qDebug() << currentZoom;
 }
 
 void NotPad::on_actionReset_Zoom_triggered()
@@ -265,13 +260,11 @@ void NotPad::on_actionReset_Zoom_triggered()
 		int resetZoom = abs(currentZoom);
 		ui->plainTextEdit->zoomIn(resetZoom);
 		currentZoom = 0;
-		qDebug() << currentZoom;
 	}
 	else {
 		int resetZoom = abs(currentZoom);
 		ui->plainTextEdit->zoomOut(resetZoom);
 		currentZoom = 0;
-		qDebug() << currentZoom;
 	}
 }
 

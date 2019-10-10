@@ -12,7 +12,6 @@
 #include <QFontDialog>
 #include <QDesktopServices>
 #include <QMessageBox>
-#include <QDebug>
 #include "about.h"
 
 QT_BEGIN_NAMESPACE
