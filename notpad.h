@@ -13,6 +13,7 @@
 #include <QDesktopServices>
 #include <QMessageBox>
 #include <QDebug>
+#include "about.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -60,11 +61,13 @@ private slots:
 	void on_actionReset_Zoom_triggered();
 	void on_actionFont_triggered();
 	void on_actionView_Source_Code_triggered();
+	void on_actionAbout_NotPad_triggered();
 
 private:
     Ui::MainWindow *ui;
 	QString activeFile = "";
 	QPrinter printer;
 	int currentZoom = 0;
+	About ab;
 };
 #endif // MAINWINDOW_H

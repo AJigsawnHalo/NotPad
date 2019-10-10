@@ -284,3 +284,8 @@ void NotPad::on_actionView_Source_Code_triggered()
 {
 	QDesktopServices::openUrl(QUrl("https://github.com/AJigsawnHalo/NotPad", QUrl::TolerantMode));
 }
+
+void NotPad::on_actionAbout_NotPad_triggered()
+{
+	ab.show();
+}
