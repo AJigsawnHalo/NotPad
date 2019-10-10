@@ -10,6 +10,7 @@
 #include <QPrintDialog>
 #include <QTextBlock>
 #include <QFontDialog>
+#include <QDesktopServices>
 #include <QMessageBox>
 #include <QDebug>
 
@@ -58,6 +59,7 @@ private slots:
 	void on_actionZoom_Out_triggered();
 	void on_actionReset_Zoom_triggered();
 	void on_actionFont_triggered();
+	void on_actionView_Source_Code_triggered();
 
 private:
     Ui::MainWindow *ui;
