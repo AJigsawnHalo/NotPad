@@ -78,3 +78,7 @@ NotPad
 
 # vscodium folder
 .vscode
+
+# other folders/files
+.clang
+compile_commands.json
